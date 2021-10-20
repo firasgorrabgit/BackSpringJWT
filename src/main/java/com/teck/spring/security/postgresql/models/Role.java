@@ -1,0 +1,55 @@
+package com.teck.spring.security.postgresql.models;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "roles")
+public class Role {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
+	private ERole name;
+
+/*
+	@Column(name = "role")
+	private String role;
+
+	public String getRole() {
+		return role;
+	}
+
+	public Role(String role) {
+		this.role = role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+*/
+	public Role() {
+
+	}
+
+	public Role(ERole name) {
+		this.name = name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public ERole getName() {
+		return name;
+	}
+
+	public void setName(ERole name) {
+		this.name = name;
+	}
+}
